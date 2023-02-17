@@ -1,4 +1,4 @@
-from .person import Person
+from classes.person import Person
 from csv import DictReader
 
 
@@ -7,7 +7,7 @@ class Staff(Person):
     def __init__(self, **kwargs) -> None:
         
         super().__init__(kwargs ['name'], kwargs ['age'], kwargs ['role'], kwargs ['password'])
-        self.employee_id = kwargs ['employee_id']
+        self.employee_id = int(kwargs['employee_id'])
       
       
     @classmethod
