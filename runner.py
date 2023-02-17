@@ -6,3 +6,9 @@ school = School('Ridgemont High')
 
 
 print(school.name)
+
+for s in school.staff:
+    print(s.name)
+    
+for s in school.students:
+    print(s.name)

@@ -1,15 +1,20 @@
 from classes.person import Person
-import csv
+from csv import DictReader
 
 class Student(Person):
     
-    def __init__(self, name, age, role, student_id, password):
-        super().__init__(name, age, role, password)
-        self.student_id = student_id
+    def __init__(self, **kwargs) -> None:
+        super().__init__(kwargs ['name'], kwargs ['age'], kwargs ['role'], kwargs ['password'])
+        self.school_id = kwargs ['school_id']
         
+    @classmethod    
+    def load_student_from_csv(cls):
         
-    # def load_student_from_csv():
-        
-    #     with open('../data/staff.csv') as csv_file:
-    #         reader = csv.DictReader(csv_file)
-    #     pass
+        student_list =[]
+        with open('./data/students.csv') as csv_file:
+            reader = DictReader(csv_file)
+            for row in reader:
+                new_student = cls(**row)
+                student_list.append(new_student)
+                # print(row)
+        return student_list
