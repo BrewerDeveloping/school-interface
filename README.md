@@ -175,3 +175,7 @@ print(school.students)
 ```
 
 
+## TODO:
+
+-- create staff and students from the csv files(dict_reader)
+--print out CLI prompt and give user position
